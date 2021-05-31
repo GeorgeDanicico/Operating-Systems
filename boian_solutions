@@ -1,0 +1,11 @@
+1. grep -E " economica.*Sun" last.fake | awk '{print $1}' | sort | uniq
+2. awk '{print $1, $7}' last.fake | grep -E "23:.." | awk '{print $1}'| sort | uniq 
+3. grep -E "^m" passwd.fake | awk -F: '$3 % 7 ==0 {print $5}'
+4. awk '{print $6}' ps.fake | sort | uniq
+5. grep -E "^[a-z]{4}..88" passwd.fake | awk -F: '{print $5}'
+6. awk -F: 'int($3 / 10) == 23{print $5}' passwd.fake
+7. grep -E "^t.* pts/9" last.fake | awk '{print $1}' | sort | uniq
+8. grep -E "^r" ps.fake | awk '{print $1}'| sort | uniq | sed -E "s/([aeiouAEIOU])/\1\1/gi"
+9. sed -E "s/[a-zA-Z0-9]//gi" passwd.fake | sort | uniq
+10. sed -E "s/[^r]//gi" passwd.fake | sort | uniq
+11. awk -f ex10.awk ps.fake 
